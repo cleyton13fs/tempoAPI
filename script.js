@@ -2,7 +2,7 @@ document.getElementById('fetchWeather').addEventListener('click', fetchWeatherDa
 
 function fetchWeatherData() {
     const apiKey = '2befaeb67ace7b69fc53cc55b93bcec4';
-    const cities = ['London', 'New York', 'Tokyo'];
+    const cities = ['Fortaleza', 'Itapipoca', 'São Paulo', 'Rio de Janeiro', 'Brasília','London', 'New York', 'Tokyo'];
 
     const requests = cities.map(city => 
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
@@ -17,7 +17,7 @@ function fetchWeatherData() {
     Promise.all(requests)
         .then(responses => {
             const resultsDiv = document.getElementById('results');
-            resultsDiv.innerHTML = ''; // Limpa os resultados anteriores
+            resultsDiv.innerHTML = '';
             responses.forEach(response => {
                 const cityWeather = `
                     <div>
